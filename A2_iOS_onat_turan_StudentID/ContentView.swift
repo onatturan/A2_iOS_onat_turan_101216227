@@ -54,14 +54,3 @@ struct ContentView: View {
             .navigationTitle("Product Management")
         }
     }
-
-    func addProduct() {
-        guard let price = Double(productPrice) else { return }
-        let newProduct = Product(productID: Int64(products.count + 1), name: productName, desc: productDesc, price: price, provider: productProvider)
-        modelContext.insert(newProduct)
-    }
-
-    func searchProduct() {
-        _products = Query(filter: #Predicate { $0.name.contains(searchKeyword) || $0.desc.contains(searchKeyword) })
-    }
-}
