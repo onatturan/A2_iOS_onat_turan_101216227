@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		769C246C2D9739CC00132116 /* A2_iOS_onat_turan_StudentID.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 769C246B2D9739B900132116 /* A2_iOS_onat_turan_StudentID.xcdatamodeld */; };
 		769C246E2D973A2500132116 /* A2_iOS_onat_turan_StudentIDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769C246D2D973A2100132116 /* A2_iOS_onat_turan_StudentIDApp.swift */; };
+		769C24702D973F7C00132116 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769C246F2D973F7800132116 /* Product.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,7 @@
 		769C24582D97394500132116 /* A2_iOS_onat_turan_StudentIDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = A2_iOS_onat_turan_StudentIDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		769C246B2D9739B900132116 /* A2_iOS_onat_turan_StudentID.xcdatamodeld */ = {isa = PBXFileReference; lastKnownFileType = text; path = A2_iOS_onat_turan_StudentID.xcdatamodeld; sourceTree = "<group>"; };
 		769C246D2D973A2100132116 /* A2_iOS_onat_turan_StudentIDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A2_iOS_onat_turan_StudentIDApp.swift; sourceTree = "<group>"; };
+		769C246F2D973F7800132116 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -82,6 +84,7 @@
 		769C24322D97394100132116 = {
 			isa = PBXGroup;
 			children = (
+				769C246F2D973F7800132116 /* Product.swift */,
 				769C246D2D973A2100132116 /* A2_iOS_onat_turan_StudentIDApp.swift */,
 				769C246B2D9739B900132116 /* A2_iOS_onat_turan_StudentID.xcdatamodeld */,
 				769C243D2D97394100132116 /* A2_iOS_onat_turan_StudentID */,
@@ -246,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				769C24702D973F7C00132116 /* Product.swift in Sources */,
 				769C246E2D973A2500132116 /* A2_iOS_onat_turan_StudentIDApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
