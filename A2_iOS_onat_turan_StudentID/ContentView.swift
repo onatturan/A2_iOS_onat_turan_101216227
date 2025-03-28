@@ -3,13 +3,7 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var products: [Product]
-    
-    @State private var productName = ""
-    @State private var productDesc = ""
-    @State private var productPrice = ""
-    @State private var productProvider = ""
-    @State private var searchKeyword = ""
+
 
     var body: some View {
         NavigationView {
