@@ -30,19 +30,7 @@ struct ContentView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
                 
-                Button("Add Product") {
-                    addProduct()
-                }
-                .padding()
-                
-                TextField("Search Product", text: $searchKeyword)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
 
-                Button("Search") {
-                    searchProduct()
-                }
-                .padding()
 
                 List(products) { product in
                     VStack(alignment: .leading) {
