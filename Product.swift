@@ -8,6 +8,11 @@ class Product {
     var price: Double
     var provider: String
 
-
+    init(productID: Int64, name: String, desc: String, price: Double, provider: String) {
+        self.productID = productID
+        self.name = name
+        self.desc = desc
+        self.price = price
+        self.provider = provider
     }
 }
