@@ -10,3 +10,4 @@ struct A2_iOS_onat_turan_StudentIDApp: App {
         }
     }
 }
+
