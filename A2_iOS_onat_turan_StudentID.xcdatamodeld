@@ -1,0 +1,16 @@
+//
+//  A2_iOS_onat_turan_StudentID.xcdatamodeld
+//  A2_iOS_onat_turan_StudentID
+//
+//  Created by Onat Turan on 2025-03-28.
+//
+
+productID (Integer 64)
+
+name (String)
+
+desc (String)
+
+price (Double)
+
+provider (String)

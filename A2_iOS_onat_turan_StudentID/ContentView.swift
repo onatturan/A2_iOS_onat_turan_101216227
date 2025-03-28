@@ -1,66 +1,67 @@
-//
-//  ContentView.swift
-//  A2_iOS_onat_turan_StudentID
-//
-//  Created by Onat Turan on 2025-03-28.
-//
-
 import SwiftUI
 import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+    @Query private var products: [Product]
+    
+    @State private var productName = ""
+    @State private var productDesc = ""
+    @State private var productPrice = ""
+    @State private var productProvider = ""
+    @State private var searchKeyword = ""
 
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+        NavigationView {
+            VStack {
+                TextField("Product Name", text: $productName)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                
+                TextField("Description", text: $productDesc)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                
+                TextField("Price", text: $productPrice)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                
+                TextField("Provider", text: $productProvider)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                
+                Button("Add Product") {
+                    addProduct()
+                }
+                .padding()
+                
+                TextField("Search Product", text: $searchKeyword)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+
+                Button("Search") {
+                    searchProduct()
+                }
+                .padding()
+
+                List(products) { product in
+                    VStack(alignment: .leading) {
+                        Text(product.name).font(.headline)
+                        Text(product.desc).font(.subheadline)
                     }
                 }
-                .onDelete(perform: deleteItems)
             }
-#if os(macOS)
-            .navigationSplitViewColumnWidth(min: 180, ideal: 200)
-#endif
-            .toolbar {
-#if os(iOS)
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-#endif
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-        } detail: {
-            Text("Select an item")
+            .navigationTitle("Product Management")
         }
     }
 
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
+    func addProduct() {
+        guard let price = Double(productPrice) else { return }
+        let newProduct = Product(productID: Int64(products.count + 1), name: productName, desc: productDesc, price: price, provider: productProvider)
+        modelContext.insert(newProduct)
     }
 
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
-            }
-        }
+    func searchProduct() {
+        _products = Query(filter: #Predicate { $0.name.contains(searchKeyword) || $0.desc.contains(searchKeyword) })
     }
-}
-
-#Preview {
-    ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
 }
